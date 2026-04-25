@@ -9,3 +9,24 @@ result-*
 
 .vscode/
 .idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Testing
+.coverage
+.coverage.*
+.pytest_cache/
+htmlcov/
+coverage.xml
+
+# Type checking
+.mypy_cache/

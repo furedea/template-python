@@ -16,8 +16,14 @@
         packages = with pkgs; [
           commitlint
           lefthook
-          # Add language toolchain here (uv, pnpm, cargo, go, ...).
+          python314
+          uv
         ];
+
+        env = {
+          UV_PYTHON_DOWNLOADS = "never";
+          UV_PYTHON_PREFERENCE = "only-system";
+        };
       };
     };
 }

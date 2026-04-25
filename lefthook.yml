@@ -2,3 +2,14 @@ commit-msg:
   commands:
     commitlint:
       run: commitlint --edit {1}
+
+pre-commit:
+  commands:
+    ruff-check:
+      glob: "*.py"
+      run: uv run ruff check {staged_files}
+    ruff-format:
+      glob: "*.py"
+      run: uv run ruff format --check {staged_files}
+    ty:
+      run: uv run ty check

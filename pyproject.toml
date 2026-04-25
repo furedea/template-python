@@ -1,0 +1,108 @@
+[project]
+name = ""
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = "== 3.14.*"
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.uv]
+managed = true
+default-groups = ["lint", "typecheck", "test"]
+exclude-newer = "1 week"
+
+[dependency-groups]
+lint = [
+  "ruff==0.15.12",
+]
+typecheck = [
+  "ty==0.0.32",
+]
+test = [
+  "pytest==9.0.3",
+  "pytest-mock==3.15.1",
+  "pytest-cov==7.1.0",
+]
+audit = [
+  "deptry==0.25.1",
+  "vulture==2.16",
+]
+
+[tool.ruff]
+target-version = "py314"
+src = ["src", "tests"]
+line-length = 119
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = [
+  "AIR", "FAST", "YTT", "ANN", "ASYNC", "B", "A", "C4", "CPY", "DTZ",
+  "T10", "DJ", "FIX", "FA", "INT", "LOG", "G", "PIE", "PYI", "Q",
+  "SLOT", "TID", "TD", "ARG", "PTH", "FLY", "I", "NPY", "PD", "PERF",
+  "E", "W", "DOC", "F", "PGH", "PLC", "PLE", "PLR", "PLW", "UP",
+  "FURB", "RUF", "INP",
+]
+ignore = [
+  "G004",
+  "PLC1901",
+  "PLR2004",
+  "ANN401",
+  "ARG002",
+  "INP001",
+  "PGH004",
+  "B008",
+  "A002",
+  "A003",
+  "PLR0913",
+  "W191",
+  "E111",
+  "E114",
+  "E117",
+]
+
+[tool.ty.src]
+include = ["src", "tests"]
+
+[tool.ty.analysis]
+respect-type-ignore-comments = true
+
+[tool.ty.rules]
+deprecated = "warn"
+
+invalid-argument-type = "error"
+invalid-assignment = "error"
+invalid-attribute-access = "error"
+invalid-method-override = "error"
+invalid-parameter-default = "error"
+invalid-return-type = "error"
+invalid-type-arguments = "error"
+
+missing-argument = "error"
+no-matching-overload = "error"
+not-subscriptable = "error"
+
+unresolved-attribute = "error"
+unresolved-import = "error"
+unresolved-reference = "error"
+
+possibly-missing-attribute = "warn"
+possibly-missing-import = "warn"
+possibly-unresolved-reference = "warn"
+
+redundant-cast = "warn"
+unknown-argument = "warn"
+unused-type-ignore-comment = "warn"
+
+[tool.ty.terminal]
+error-on-warning = false
