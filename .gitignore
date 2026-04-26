@@ -1,6 +1,7 @@
 .direnv/
 result
 result-*
+logs/
 
 .DS_Store
 .env
@@ -15,18 +16,31 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+.Python
 .venv/
 dist/
 build/
 *.egg-info/
 *.egg
+.ruff_cache/
+.uv-cache/
 
 # Testing
 .coverage
 .coverage.*
+*.cover
+*.py,cover
 .pytest_cache/
+.hypothesis/
 htmlcov/
 coverage.xml
+.cache
+.tox/
+.nox/
 
-# Type checking
-.mypy_cache/
+# Documentation
+docs/_build/
+/site
+
+# Jupyter
+.ipynb_checkpoints
