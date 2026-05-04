@@ -16,14 +16,18 @@
         packages = with pkgs; [
           commitlint
           lefthook
-          python314
           uv
         ];
 
         env = {
-          UV_PYTHON_DOWNLOADS = "never";
-          UV_PYTHON_PREFERENCE = "only-system";
+          UV_MANAGED_PYTHON = "1";
         };
+
+        shellHook = ''
+          if [ -d .venv/bin ]; then
+            export PATH="$PWD/.venv/bin:$PATH"
+          fi
+        '';
       };
     };
 }
