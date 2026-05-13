@@ -13,6 +13,15 @@ packages = ["src"]
 pythonpath = ["src"]
 testpaths = ["tests"]
 
+[tool.deptry]
+ignore_notebooks = true
+
+[tool.vulture]
+paths = ["src", "tests"]
+min_confidence = 100
+sort_by_size = true
+exclude = [".venv", "build", "dist"]
+
 [tool.uv]
 managed = true
 default-groups = ["lint", "typecheck", "test"]
