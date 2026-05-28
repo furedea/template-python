@@ -7,21 +7,19 @@ ignore:
   - .direnv
   - result
   - result-*
-  - "**/logs"
-  - "**/.cache"
+  - docs/logs
 
-  - "**/README.md"
-  - "**/AGENTS.md"
-  - "**/CLAUDE.md"
-  - "**/SKILL.md"
-  - .coverage
+  - README.md
 
   - .venv
+  - .coverage
   - .uv-cache
   - .ruff_cache
   - .pytest_cache
   - .ipynb_checkpoints
-  - "**/__pycache__"
-  - "**/__init__.py"
+  - "src/**/__pycache__"
+  - "src/**/__init__.py"
+  - "tests/**/__pycache__"
+  - "tests/**/__init__.py"
   - dist
   - build
