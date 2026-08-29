@@ -1,5 +1,7 @@
 ls:
   .dir: regex:\.?[a-z0-9]+(-[a-z0-9]+)*
+  .md: regex:[a-z0-9]*([._][a-z0-9]+)* | regex:(README|CONTRIBUTING|CHANGELOG|AGENTS|CLAUDE|SKILL)
+  .py: regex:[a-z0-9]*([._][a-z0-9]+)* | regex:__[a-z0-9]+__
   .*: regex:[a-z0-9]*([._][a-z0-9]+)*
 
 ignore:
@@ -8,18 +10,9 @@ ignore:
   - result
   - result-*
   - docs/logs
+  - "**/docs/logs"
 
-  - README.md
-
-  - .venv
-  - .coverage
-  - .uv-cache
-  - .ruff_cache
-  - .pytest_cache
-  - .ipynb_checkpoints
-  - "src/**/__pycache__"
-  - "src/**/__init__.py"
-  - "tests/**/__pycache__"
-  - "tests/**/__init__.py"
-  - dist
-  - build
+  - "{.venv,.coverage,.uv-cache,.ruff_cache,.pytest_cache,.ipynb_checkpoints,__pycache__,node_modules,target}"
+  - "**/{.venv,.coverage,.uv-cache,.ruff_cache,.pytest_cache,.ipynb_checkpoints,__pycache__,node_modules,target}"
+  - "{dist,build}"
+  - "**/{dist,build}"
