@@ -19,12 +19,14 @@
           lefthook
           ls-lint
           nixfmt-rfc-style
+          python314
           statix
           uv
         ];
 
         env = {
-          UV_MANAGED_PYTHON = "1";
+          UV_PYTHON_DOWNLOADS = "never";
+          UV_PYTHON_PREFERENCE = "only-system";
         };
 
         shellHook = ''
