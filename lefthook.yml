@@ -26,3 +26,11 @@ pre-commit:
       run: uv run ty check
     ls-lint:
       run: ls_lint
+    file-length:
+      glob: "*.py"
+      run: |
+        for f in {staged_files}; do
+          n=$(wc -l < "$f")
+          [ "$n" -le 500 ] || { echo "$f: $n lines (max 500)"; fail=1; }
+        done
+        exit ${fail:-0}

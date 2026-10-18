@@ -55,6 +55,8 @@ indent-style = "space"
 docstring-code-format = true
 
 [tool.ruff.lint]
+preview = true
+explicit-preview-rules = true
 select = [
   "AIR",
   "FAST",
@@ -99,6 +101,8 @@ select = [
   "FURB",
   "RUF",
   "INP",
+  "C901",
+  "PLR1702",
 ]
 ignore = [
   "G004",
@@ -107,16 +111,24 @@ ignore = [
   "ANN401",
   "ARG002",
   "INP001",
-  "PGH004",
   "B008",
   "A002",
   "A003",
-  "PLR0913",
   "W191",
   "E111",
   "E114",
   "E117",
 ]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["PLR0913"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pylint]
+max-args = 3
+max-nested-blocks = 2
 
 [tool.ty.src]
 include = ["src", "tests"]
