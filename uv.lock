@@ -1,9 +1,9 @@
 version = 1
-revision = 3
-requires-python = "==3.14.*"
+revision = 5
+requires-python = ">=3.14.9, <3.15"
 
 [options]
-exclude-newer = "2026-04-19T10:11:07.025841Z"
+exclude-newer = "0001-01-01T00:00:00Z" # This has no effect and is included for backwards compatibility when using relative exclude-newer values.
 exclude-newer-span = "P1W"
 
 [[package]]
@@ -208,6 +208,7 @@ wheels = [
 name = "template-python"
 version = "0.1.0"
 source = { virtual = "." }
+default-groups = ["lint", "test", "typecheck"]
 
 [package.dev-dependencies]
 audit = [
