@@ -55,6 +55,9 @@ jobs:
 
       - name: Install uv
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          version: "0.13.5"
+          python-version: "3.14.9"
 
       - name: Run ruff check
         run: uv run ruff check
@@ -75,6 +78,9 @@ jobs:
 
       - name: Install uv
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          version: "0.13.5"
+          python-version: "3.14.9"
 
       - name: Run ty
         run: uv run ty check
@@ -92,6 +98,9 @@ jobs:
 
       - name: Install uv
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          version: "0.13.5"
+          python-version: "3.14.9"
 
       - name: Run tests
         run: uv run pytest --cov
@@ -109,6 +118,9 @@ jobs:
 
       - name: Install uv
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          version: "0.13.5"
+          python-version: "3.14.9"
 
       - name: Run deptry
         run: uv run --group audit deptry .

@@ -20,11 +20,11 @@
             deadnix
             ls-lint
             nixfmt
-            python314
             statix
-            uv
           ])
           ++ [
+            (pkgs.callPackage ./nix/python.nix { })
+            (pkgs.callPackage ./nix/uv.nix { })
             # lefthook before 2.1.6 runs hooks under a pty, which agent sandboxes deny.
             nixpkgs-unstable.legacyPackages.${system}.lefthook
           ];
