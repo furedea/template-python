@@ -5,15 +5,16 @@
   versionCheckHook,
 }:
 
-# TODO: Drop this and use pkgs.uv once the nixpkgs input has >= 0.13.4.
-# Official build of uv 0.13.4, which drops the compromised emSign root from its bundled CA store.
+# TODO: Drop this and use pkgs.uv once the nixpkgs input has >= 0.13.5.
+# Official build of uv 0.13.5. 0.13.4 drops the compromised emSign root from its bundled CA store,
+# but 0.13.5 is the first release that can install managed CPython 3.14.9.
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "uv";
-  version = "0.13.4";
+  version = "0.13.5";
 
   src = fetchurl {
     url = "https://github.com/astral-sh/uv/releases/download/${finalAttrs.version}/uv-aarch64-apple-darwin.tar.gz";
-    hash = "sha256-4LHUdDzmTFXZ8PSkRK+muBElaABw7gToU/zQ9sHr+PE=";
+    hash = "sha256-dD+FA1oZluyzUGWeAc2frqlwmCm+CbG0sDxz6vPJzXM=";
   };
 
   dontBuild = true;
