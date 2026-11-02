@@ -131,6 +131,9 @@ jobs:
       - name: Run vulture
         run: uv run --group audit vulture
 
+      - name: Run uv audit
+        run: uv audit --preview-features audit
+
   all-green:
     if: always()
     needs: [nix-lint, lint, typecheck, test, audit]
