@@ -37,7 +37,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Nix
-        uses: furedea/reusable-workflows/.github/actions/nix-setup@RELEASE_SHA # vRELEASE
+        uses: furedea/reusable-workflows/.github/actions/nix-setup@2ae953294b9a805d0705657adc1d9d4f1bc1f646 # v1.3.0
 
       - name: Run ruff check
         run: uv run ruff check
@@ -57,7 +57,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Nix
-        uses: furedea/reusable-workflows/.github/actions/nix-setup@RELEASE_SHA # vRELEASE
+        uses: furedea/reusable-workflows/.github/actions/nix-setup@2ae953294b9a805d0705657adc1d9d4f1bc1f646 # v1.3.0
 
       - name: Run ty
         run: uv run ty check
@@ -74,7 +74,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Nix
-        uses: furedea/reusable-workflows/.github/actions/nix-setup@RELEASE_SHA # vRELEASE
+        uses: furedea/reusable-workflows/.github/actions/nix-setup@2ae953294b9a805d0705657adc1d9d4f1bc1f646 # v1.3.0
 
       - name: Run tests
         run: uv run pytest --cov
@@ -91,7 +91,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Nix
-        uses: furedea/reusable-workflows/.github/actions/nix-setup@RELEASE_SHA # vRELEASE
+        uses: furedea/reusable-workflows/.github/actions/nix-setup@2ae953294b9a805d0705657adc1d9d4f1bc1f646 # v1.3.0
 
       - name: Run deptry
         run: uv run --group audit deptry .
