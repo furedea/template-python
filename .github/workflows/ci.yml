@@ -17,7 +17,7 @@ env:
 
 defaults:
   run:
-    shell: bash
+    shell: nix develop --command bash -eo pipefail {0}
 
 jobs:
   nix-lint:
@@ -36,11 +36,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
-        with:
-          version: "0.13.5"
-          python-version: "3.14.9"
+      - name: Set up Nix
+        uses: furedea/reusable-workflows/.github/actions/nix-setup@RELEASE_SHA # vRELEASE
 
       - name: Run ruff check
         run: uv run ruff check
@@ -59,11 +56,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
-        with:
-          version: "0.13.5"
-          python-version: "3.14.9"
+      - name: Set up Nix
+        uses: furedea/reusable-workflows/.github/actions/nix-setup@RELEASE_SHA # vRELEASE
 
       - name: Run ty
         run: uv run ty check
@@ -79,11 +73,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
-        with:
-          version: "0.13.5"
-          python-version: "3.14.9"
+      - name: Set up Nix
+        uses: furedea/reusable-workflows/.github/actions/nix-setup@RELEASE_SHA # vRELEASE
 
       - name: Run tests
         run: uv run pytest --cov
@@ -99,11 +90,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
-        with:
-          version: "0.13.5"
-          python-version: "3.14.9"
+      - name: Set up Nix
+        uses: furedea/reusable-workflows/.github/actions/nix-setup@RELEASE_SHA # vRELEASE
 
       - name: Run deptry
         run: uv run --group audit deptry .
@@ -163,4 +151,5 @@ jobs:
     steps:
       - name: Fail if any prerequisite did not succeed
         if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') || contains(needs.*.result, 'skipped')
+        shell: bash
         run: exit 1
