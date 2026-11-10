@@ -90,7 +90,9 @@ select = [
   "PERF",
   "E",
   "W",
+  "D",
   "DOC",
+  "N",
   "F",
   "PGH",
   "PLC",
@@ -114,6 +116,9 @@ ignore = [
   "B008",
   "A002",
   "A003",
+  "D104",
+  "D105",
+  "D107",
   "W191",
   "E111",
   "E114",
@@ -121,7 +126,10 @@ ignore = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**" = ["PLR0913"]
+"tests/**" = ["D", "PLR0913"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10
