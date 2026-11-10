@@ -66,7 +66,6 @@ select = [
   "B",
   "A",
   "C4",
-  "CPY",
   "DTZ",
   "T10",
   "DJ",
@@ -105,6 +104,7 @@ select = [
   "INP",
   "C901",
   "PLR1702",
+  "PLR0917",
 ]
 ignore = [
   "G004",
@@ -126,7 +126,8 @@ ignore = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**" = ["D", "PLR0913"]
+# pytest passes fixtures and parametrize values by name, so positional-order mistakes cannot happen (PLR0917's premise).
+"tests/**" = ["D", "PLR0913", "PLR0917"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
