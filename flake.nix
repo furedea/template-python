@@ -32,7 +32,8 @@
                 statix
               ])
               ++ [
-                (pkgs.callPackage ./nix/python.nix { })
+                # 3.15.2 is the first release whose `ssl` denylists the compromised eMudhra intermediates.
+                nixpkgs-unstable.legacyPackages.${system}.python315
                 (pkgs.callPackage ./nix/uv.nix { })
                 # lefthook before 2.1.6 runs hooks under a pty, which agent sandboxes deny.
                 nixpkgs-unstable.legacyPackages.${system}.lefthook

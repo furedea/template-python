@@ -7,7 +7,7 @@
 
 # TODO: Drop this and use pkgs.uv once the nixpkgs input has >= 0.13.5.
 # Official build of uv 0.13.5. 0.13.4 drops the compromised emSign root from its bundled CA store,
-# but 0.13.5 is the first release that can install managed CPython 3.14.9.
+# and 0.13.6 is the first release that can install managed CPython 3.15.2 (the devShell uses nixpkgs' Python instead).
 let
   # Hashes are the sha256 digests that GitHub reports for each release asset.
   assets = {
