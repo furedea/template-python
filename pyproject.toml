@@ -104,6 +104,10 @@ select = [
   "INP",
   "C901",
   "PLR1702",
+  "RET505",
+  "RET506",
+  "RET507",
+  "RET508",
   "LOG015",
   "TRY400",
   # preview rules: explicit-preview-rules = true needs the full rule IDs
